@@ -1,0 +1,6 @@
+{
+  "AppSyncApiName": "recipebook",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthModeLastUpdated": "2023-10-22T20:28:34.513Z"
+}

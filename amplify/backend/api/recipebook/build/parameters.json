@@ -1,0 +1,8 @@
+{
+    "AppSyncApiName": "recipebook",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false,
+    "AuthModeLastUpdated": "2023-10-22T20:28:34.513Z",
+    "S3DeploymentBucket": "amplify-amplifyd7a3401c69fa4-staging-194413-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/38e5a426813f8bea871d1a8b0556543321e1345f"
+}

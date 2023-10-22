@@ -1,0 +1,48 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplifyd7a3401c69fa4-staging-194413-authRole",
+      "UnauthRoleArn": "arn:aws:iam::218779182226:role/amplify-amplifyd7a3401c69fa4-staging-194413-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::218779182226:role/amplify-amplifyd7a3401c69fa4-staging-194413-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-amplifyd7a3401c69fa4-staging-194413-deployment",
+      "UnauthRoleName": "amplify-amplifyd7a3401c69fa4-staging-194413-unauthRole",
+      "StackName": "amplify-amplifyd7a3401c69fa4-staging-194413",
+      "StackId": "arn:aws:cloudformation:us-west-2:218779182226:stack/amplify-amplifyd7a3401c69fa4-staging-194413/60f684f0-7113-11ee-9d54-02b9c3b29343",
+      "AmplifyAppId": "d2csh3cfd3t843"
+    }
+  },
+  "api": {
+    "recipebook": {
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ],
+          "defaultAuthentication": {
+            "apiKeyConfig": {
+              "apiKeyExpirationDate": "2023-10-22T20:28:25.559Z",
+              "apiKeyExpirationDays": 0,
+              "description": "recipebook"
+            },
+            "authenticationType": "API_KEY"
+          }
+        },
+        "GraphQLAPIIdOutput": "4obrxsu6svapvg3nb2jo7dswjm",
+        "GraphQLAPIEndpointOutput": "https://3qinomxllrekxjud5esv3svzbi.appsync-api.us-west-2.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-6tpsgflmcjhghdt74qidqhvv2q"
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync",
+      "lastPushTimeStamp": "2023-10-22T20:50:09.078Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifyd7a3401c69fa4-staging-194413-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apirecipebook"
+      },
+      "lastPushDirHash": "dwnehkeuAyNLeUGtBlkjbYaAEdo="
+    }
+  }
+}

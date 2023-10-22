@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+.main_nav_box {
+	height: 120px;
+	width: 100%;
+	display: inline-block;
+}
+
+.main_nav {
+	margin: 20px;
+}
+
+.main_nav_link {
+	float: right;
+	padding-left: 20px;
+}
+
+.side_nav {
+	width: 20%;
+	float: left;
+	padding-left: 20px;
+	padding-top: 50px;
+}
