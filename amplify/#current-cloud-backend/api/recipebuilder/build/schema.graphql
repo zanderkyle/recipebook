@@ -1,0 +1,270 @@
+type Food @aws_iam @aws_api_key {
+  id: ID!
+  name: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+type Recipes @aws_iam @aws_api_key {
+  id: ID!
+  name: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+}
+
+input ModelStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelBooleanInput {
+  ne: Boolean
+  eq: Boolean
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelSubscriptionStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  in: [String]
+  notIn: [String]
+}
+
+input ModelSubscriptionIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  in: [Int]
+  notIn: [Int]
+}
+
+input ModelSubscriptionFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  in: [Float]
+  notIn: [Float]
+}
+
+input ModelSubscriptionBooleanInput {
+  ne: Boolean
+  eq: Boolean
+}
+
+input ModelSubscriptionIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  in: [ID]
+  notIn: [ID]
+}
+
+enum ModelAttributeTypes {
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+  _null
+}
+
+input ModelSizeInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelFoodConnection @aws_api_key @aws_iam {
+  items: [Food]!
+  nextToken: String
+}
+
+input ModelFoodFilterInput {
+  id: ModelIDInput
+  name: ModelStringInput
+  and: [ModelFoodFilterInput]
+  or: [ModelFoodFilterInput]
+  not: ModelFoodFilterInput
+}
+
+type Query {
+  getFood(id: ID!): Food @aws_api_key @aws_iam
+  listFoods(filter: ModelFoodFilterInput, limit: Int, nextToken: String): ModelFoodConnection @aws_api_key @aws_iam
+  getRecipes(id: ID!): Recipes @aws_api_key @aws_iam
+  listRecipes(filter: ModelRecipesFilterInput, limit: Int, nextToken: String): ModelRecipesConnection @aws_api_key @aws_iam
+}
+
+input ModelFoodConditionInput {
+  name: ModelStringInput
+  and: [ModelFoodConditionInput]
+  or: [ModelFoodConditionInput]
+  not: ModelFoodConditionInput
+}
+
+input CreateFoodInput {
+  id: ID
+  name: String
+}
+
+input UpdateFoodInput {
+  id: ID!
+  name: String
+}
+
+input DeleteFoodInput {
+  id: ID!
+}
+
+type Mutation {
+  createFood(input: CreateFoodInput!, condition: ModelFoodConditionInput): Food @aws_api_key @aws_iam
+  updateFood(input: UpdateFoodInput!, condition: ModelFoodConditionInput): Food @aws_api_key @aws_iam
+  deleteFood(input: DeleteFoodInput!, condition: ModelFoodConditionInput): Food @aws_api_key @aws_iam
+  createRecipes(input: CreateRecipesInput!, condition: ModelRecipesConditionInput): Recipes @aws_api_key @aws_iam
+  updateRecipes(input: UpdateRecipesInput!, condition: ModelRecipesConditionInput): Recipes @aws_api_key @aws_iam
+  deleteRecipes(input: DeleteRecipesInput!, condition: ModelRecipesConditionInput): Recipes @aws_api_key @aws_iam
+}
+
+input ModelSubscriptionFoodFilterInput {
+  id: ModelSubscriptionIDInput
+  name: ModelSubscriptionStringInput
+  and: [ModelSubscriptionFoodFilterInput]
+  or: [ModelSubscriptionFoodFilterInput]
+}
+
+type Subscription {
+  onCreateFood(filter: ModelSubscriptionFoodFilterInput): Food @aws_subscribe(mutations: ["createFood"]) @aws_api_key @aws_iam
+  onUpdateFood(filter: ModelSubscriptionFoodFilterInput): Food @aws_subscribe(mutations: ["updateFood"]) @aws_api_key @aws_iam
+  onDeleteFood(filter: ModelSubscriptionFoodFilterInput): Food @aws_subscribe(mutations: ["deleteFood"]) @aws_api_key @aws_iam
+  onCreateRecipes(filter: ModelSubscriptionRecipesFilterInput): Recipes @aws_subscribe(mutations: ["createRecipes"]) @aws_api_key @aws_iam
+  onUpdateRecipes(filter: ModelSubscriptionRecipesFilterInput): Recipes @aws_subscribe(mutations: ["updateRecipes"]) @aws_api_key @aws_iam
+  onDeleteRecipes(filter: ModelSubscriptionRecipesFilterInput): Recipes @aws_subscribe(mutations: ["deleteRecipes"]) @aws_api_key @aws_iam
+}
+
+type ModelRecipesConnection @aws_api_key @aws_iam {
+  items: [Recipes]!
+  nextToken: String
+}
+
+input ModelRecipesFilterInput {
+  id: ModelIDInput
+  name: ModelStringInput
+  and: [ModelRecipesFilterInput]
+  or: [ModelRecipesFilterInput]
+  not: ModelRecipesFilterInput
+}
+
+input ModelRecipesConditionInput {
+  name: ModelStringInput
+  and: [ModelRecipesConditionInput]
+  or: [ModelRecipesConditionInput]
+  not: ModelRecipesConditionInput
+}
+
+input CreateRecipesInput {
+  id: ID
+  name: String
+}
+
+input UpdateRecipesInput {
+  id: ID!
+  name: String
+}
+
+input DeleteRecipesInput {
+  id: ID!
+}
+
+input ModelSubscriptionRecipesFilterInput {
+  id: ModelSubscriptionIDInput
+  name: ModelSubscriptionStringInput
+  and: [ModelSubscriptionRecipesFilterInput]
+  or: [ModelSubscriptionRecipesFilterInput]
+}
