@@ -1,7 +1,0 @@
-{
-    "AppSyncApiName": "recipebuilder",
-    "DynamoDBBillingMode": "PAY_PER_REQUEST",
-    "DynamoDBEnableServerSideEncryption": false,
-    "S3DeploymentBucket": "amplify-recipebuilder-staging-200544-deployment",
-    "S3DeploymentRootKey": "amplify-appsync-files/1628ce7977e894fb061d7b3028e4cd5ba3ce46bb"
-}

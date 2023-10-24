@@ -37,11 +37,52 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "AppSync",
-      "lastPushTimeStamp": "2023-10-22T22:11:10.836Z",
+      "lastPushTimeStamp": "2023-10-23T23:28:46.131Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifyd7a3401c69fa4-staging-194413-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apirecipebook"
       }
+    }
+  },
+  "auth": {
+    "recipebookd839c204": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifyd7a3401c69fa4-staging-194413-deployment/amplify-cfn-templates/auth/recipebookd839c204-cloudformation-template.json",
+        "logicalId": "authrecipebookd839c204"
+      },
+      "lastPushTimeStamp": "2023-10-23T23:28:46.133Z",
+      "output": {
+        "UserPoolId": "us-west-2_Ygw4RzX9Y",
+        "AppClientIDWeb": "16vtkecgksqa8ouh0rklt6ohds",
+        "AppClientID": "3uelb3p9jjfmjlkp8epn9rctou",
+        "IdentityPoolId": "us-west-2:cb371a4e-c03c-4b4a-9c74-78358df6c4b1",
+        "UserPoolArn": "arn:aws:cognito-idp:us-west-2:218779182226:userpool/us-west-2_Ygw4RzX9Y",
+        "IdentityPoolName": "recipebookd839c204_identitypool_d839c204__staging",
+        "UserPoolName": "recipebookd839c204_userpool_d839c204"
+      },
+      "lastPushDirHash": "oiyq4qSPqLUwITuvhRqeIhN85Es="
     }
   }
 }

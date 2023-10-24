@@ -4,9 +4,19 @@ import './App.css';
 import Dashboard from './components/Dashboard/Dashboard';
 import Header from './components/Header/Header';
 import Sidebar from './components/Sidebar/Sidebar';
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query'; 
+
+const queryClient = new QueryClient();
+
+const fetchUsers = async () => {
+  const res = await fetch("https://jsonplaceholder.typicode.com/users");
+  return res.json();
+};
 
 function App() {
+	
   return (
+	
     <div className="App">
 	  <Header />
 	  <Sidebar />
@@ -30,6 +40,7 @@ function App() {
         </a>
       </header>
     </div>
+
   );
 }
 
